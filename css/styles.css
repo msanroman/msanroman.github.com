@@ -28,3 +28,8 @@
     text-transform: uppercase;
     font: bold 13px "DroidSansBold", Verdana, sans-serif;
 }
+
+#primary ul li {
+    display: inline;
+    padding-left: 43px;
+}
