@@ -34,12 +34,12 @@
     padding-left: 43px;
 }
 
-#primary li a {
+#primary li button {
     padding: 5px 15px;
     color: #64645d;
 }
 
-#primary li a:hover {
+#primary li button:hover {
     color: #dc692e;
     background: #efefe9;
 }
