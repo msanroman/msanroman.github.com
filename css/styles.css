@@ -30,7 +30,7 @@
 }
 
 #primary ul li {
-    display: none;
+    display: list;
     padding-left: 43px;
 }
 
