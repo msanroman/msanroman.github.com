@@ -1,0 +1,8 @@
+---
+title: "Miguel San Román"
+---
+
+<div class="content">
+
+    {{page.url}}
+</div>
