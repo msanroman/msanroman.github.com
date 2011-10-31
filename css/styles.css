@@ -36,14 +36,14 @@
     font: bold 13px "DroidSansBold", Verdana, sans-serif;
 }
 
-#primary li button {
+button {
     padding: 5px 15px;
     color: #64645d;
     text-transform: uppercase;
     font: bold 13px "DroidSansBold", Verdana, sans-serif;
 }
 
-#primary li button:hover {
+button:hover {
     color: #dc692e;
     background: #efefe9;
 }

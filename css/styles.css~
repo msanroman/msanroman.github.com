@@ -32,11 +32,15 @@
 #primary ul li {
     display: block;
     padding-left: 43px;
+    text-transform: uppercase;
+    font: bold 13px "DroidSansBold", Verdana, sans-serif;
 }
 
 #primary li button {
     padding: 5px 15px;
     color: #64645d;
+    text-transform: uppercase;
+    font: bold 13px "DroidSansBold", Verdana, sans-serif;
 }
 
 #primary li button:hover {
