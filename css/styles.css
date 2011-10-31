@@ -30,7 +30,7 @@
 }
 
 #primary ul li {
-    display: inline;
+    display: none;
     padding-left: 43px;
 }
 
