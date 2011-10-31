@@ -21,3 +21,7 @@
     font-style: normal;
 
 }
+
+nav {
+    font: bold 13px "DroidSansBold", Verdana, sans-serif;
+}
