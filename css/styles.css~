@@ -22,6 +22,8 @@
 
 }
 
-nav {
+#primary {
+    width: 100%;
+    height: 28px;
     font: bold 13px "DroidSansBold", Verdana, sans-serif;
 }
