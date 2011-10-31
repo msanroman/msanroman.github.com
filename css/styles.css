@@ -43,3 +43,9 @@
     color: #dc692e;
     background: #efefe9;
 }
+
+#posts {
+    display: block;
+    width: 900px;
+    margin: 0px auto;
+}
