@@ -33,3 +33,13 @@
     display: inline;
     padding-left: 43px;
 }
+
+#primary li a {
+    padding: 5px 15px;
+    color: #64645d;
+}
+
+#primary li a:hover {
+    color: #dc692e;
+    background: #efefe9;
+}
