@@ -10,7 +10,7 @@
             {{ page.script }}
         }};
     </script>
-</head
+</head>
 <body>
 
 { page.content }
