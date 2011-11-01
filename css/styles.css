@@ -59,6 +59,7 @@ h1 a {
     height: 28px;
     text-transform: uppercase;
     font: bold 16px "Lucida Grande", Verdana, sans-serif;
+    background-color: #18181A;
 }
 
 #primary ul li {
@@ -70,7 +71,6 @@ h1 a {
 
 #primary a {
     text-decoration: none;
-    background-color: #18181A;
 }
 
 #posts {
