@@ -1,5 +1,0 @@
----
-title: This is a post test
----
-
-*Just* doing some _markdown_ and post rendering __tests__!
