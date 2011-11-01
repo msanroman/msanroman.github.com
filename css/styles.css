@@ -68,19 +68,8 @@ h1 a {
     font: bold 16px "Lucida Grande", Verdana, sans-serif;
 }
 
-button {
-    border-radius: 5px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;    
-    padding: 5px 15px;
-    color: #64645d;
-    text-transform: uppercase;
-    font: bold 13px "Lucida Grande", Verdana, sans-serif;
-}
-
-button:hover {
-    color: #dc692e;
-    background: #efefe9;
+#primary a {
+    text-decoration: none;
 }
 
 #posts {
