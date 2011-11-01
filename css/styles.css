@@ -56,7 +56,8 @@ h1 a {
 
 #primary {
     position: fixed;
-    width: 80px;
+    width: 200px;
+    height: 100%;
     font: bold 16px "Lucida Grande", Verdana, sans-serif;
     background-color: #18181A;
 }
@@ -74,7 +75,9 @@ h1 a {
 
 #posts {
     display: block;
+    width: 900px;
+    margin: 0px auto;
     padding-bottom: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 30px;    
     font: 13px "Lucida Grande", Verdana, sans-serif;
 }
