@@ -49,8 +49,9 @@ h1, h2, h3, h4{
 }
 
 h1 a {
+    color: #333;
+    font: bold 36px "Lucida Grande", sans-serif;
     text-decoration: none;
-
 }
 
 #primary {
@@ -74,7 +75,7 @@ button {
     padding: 5px 15px;
     color: #64645d;
     text-transform: uppercase;
-    font: bold 13px "DroidSansBold", Verdana, sans-serif;
+    font: bold 13px "Lucida Grande", Verdana, sans-serif;
 }
 
 button:hover {
@@ -86,4 +87,5 @@ button:hover {
     display: block;
     width: 900px;
     margin: 0px auto;
+    font: bold 16px "Lucida Grande", Verdana, sans-serif;
 }
