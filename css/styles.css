@@ -46,7 +46,11 @@ time, mark, audio, video {
 h1, h2, h3, h4{
     color: #333;
     font: bold 16px "Lucida Grande", sans-serif;
-    border-bottom: 1px solid #ccc;
+}
+
+h1 a {
+    text-decoration: none;
+
 }
 
 #primary {
