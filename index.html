@@ -1,9 +1,13 @@
 ---
-layout: post
-title: site.posts.first.title
-
+layout: global
 ---
-
 {% assign first_post = site.posts.first %}
-
-{{ first_post.content }}
+<section class="content">
+    <h1>
+        <a href="{{ first_post.url }}">{{ first_post.title }}</a>
+    </h1>
+    <time>{{ first_post.date | date: "%B %e, %Y"}}</time>
+    <section class="post">
+        {{ first_post.content }}
+    </section>
+</section>
