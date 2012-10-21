@@ -7,7 +7,7 @@ title: Building a Backbone application with CoffeeScript and Jasmine (Pt. I)
 
 ## Prelude
 
-A few weeks ago I went to the second edition of [We ♥ JS](http://welovejs.es/), and it was a blast! Not only [@cvillu](https://twitter.com/#!/cvillu) did show the awesomeness of CoffeeScript again, but also [@micho](https://twitter.com/#!/micho) did a great Backbone workshop that made me want to try out even more this framework.
+A few weeks ago I went to the second edition of [We Love JS](http://welovejs.es/), and it was a blast! Not only [@cvillu](https://twitter.com/#!/cvillu) did show the awesomeness of CoffeeScript again, but also [@micho](https://twitter.com/#!/micho) did a great Backbone workshop that made me want to try out even more this framework.
 
 I've tried two technologies in order to build my app test-driving it:
 
