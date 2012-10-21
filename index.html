@@ -1,9 +1,8 @@
-<html>
-    <head>
-        <link href='http://fonts.googleapis.com/css?family=Quando|Telex' rel='stylesheet' type='text/css'>
-        <link href="style.css" rel="stylesheet" media="screen">
-    </head>
-    <body>
-        {{ }}
-    </body>
-</html>
+---
+layout: post
+---
+
+{% assign first_post = site.posts.first %}
+{% assign page.title = first_post.title %}
+
+{{ first_post.content }}
