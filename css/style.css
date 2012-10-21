@@ -75,7 +75,7 @@ section.sidebar {
     width: 25%;
 }
 section.articles {
-    font-size: 32px;
+    font-size: 24px;
 }
 
 section.articles span.time:before {
