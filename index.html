@@ -1,13 +1,14 @@
 ---
 layout: global
 ---
-{% assign first_post = site.posts.first %}
-<section class="content">
-    <h1>
-        <a href="{{ first_post.url }}">{{ first_post.title }}</a>
-    </h1>
-    <time>{{ first_post.date | date: "%B %e, %Y"}}</time>
-    <section class="post">
-        {{ first_post.content }}
+    <section class="content">
+        {% for post in paginator.posts %}
+        <h1>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </h1>
+        <time>{{ post.date | date: "%B %e, %Y"}}</time>
+        <section class="post">
+            {{ post.content }}
+        </section>
+        {% endfor %}
     </section>
-</section>

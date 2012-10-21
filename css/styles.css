@@ -54,3 +54,7 @@ img.avatar {
 footer {
     width: 990px;
 }
+a.also {
+    text-decoration: none;
+    border-width: 0px;
+}
