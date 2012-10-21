@@ -96,6 +96,9 @@ section.articles div.divider {
 section.articles a:hover {
     color: #A4A4A4;
 }
+section.content a.post-list {
+    border-style: none;
+}
 section.articles > ul > li {
     margin-bottom: 0.5em;
 }
