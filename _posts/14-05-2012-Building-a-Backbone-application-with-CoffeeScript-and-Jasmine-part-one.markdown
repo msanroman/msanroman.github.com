@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a Backbone application with CoffeeScript and Jasmine
+---
 
 # Building a Backbone application with CoffeeScript and Jasmine
 
