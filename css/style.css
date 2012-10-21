@@ -21,9 +21,12 @@ section.post {
     line-height: 1.5em;
 }
 section.content {
-    width: 60%;
+    width: 65%;
     float: left;
     margin: 1em auto; 
+}
+section.content h1 a {
+    border-style: none;
 }
 section.content a {
     color: #343434;
