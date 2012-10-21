@@ -20,7 +20,7 @@ layout: global
             {% for post in site.posts %}
                 <li>
                     <a href="post.url">
-                        {{ post.title }} <span class="time">{{ post.date }}</span>
+                        {{ post.title }} <span class="time">{{ post.date | date: "%B %e, %Y"}}</span>
                     </a>
                 </li>
                 <hr class="divider"></hr>
