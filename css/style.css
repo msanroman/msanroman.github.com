@@ -1,0 +1,141 @@
+body {
+    font-family: 'Telex', Helvetica, HelveticaNeue, sans-serif;
+    font-size: 16px;
+    padding: 0.1em;
+    max-width: 60em;
+    margin: 40px auto;
+}
+h1, h2, h3, h4 {
+    font-family: 'Quando', Helvetica, HelveticaNeue, serif;
+}
+h1 {
+    border-bottom: 2px solid #C4C4C4;
+    font-size: 36px;
+    margin-bottom: 0.2em;
+}
+h2 {
+    font-size: 1.5em;
+}
+section.post {
+
+    line-height: 1.5em;
+}
+section.content {
+    width: 60%;
+    float: left;
+    margin: 1em auto; 
+}
+section.content a {
+    color: #343434;
+    border-color: silver;
+    border-width: 0 0 1px 0;
+    text-decoration: none;
+    border-style: none none solid none;
+}
+section.content a:hover {
+    color: #A4A4A4;
+}
+time {
+    color: #949494;
+    font-style: italic;
+}
+a {
+    text-decoration: none;
+}
+section.meta {
+    margin: 16px 70px 0px;
+}
+section.meta a {
+    color: #343434;
+}
+.github {
+    margin-right: 10px;
+    font-size: 24px;
+}
+.github:hover {
+    color: #A4A4A4;
+}
+.twitter {
+    margin-left: 10px;
+    font-size: 24px;
+}
+.twitter:hover {
+    color: #A4A4A4;
+}
+blockquote {
+    border-left: 2px solid silver;
+    margin: 2em 1em;
+    color: #444;
+    padding: 0 1em;
+}
+section.sidebar {
+    position: fixed;
+    margin-left: 660px;
+    margin-top: 2em;
+    width: 25%;
+}
+section.articles {
+    font-size: 32px;
+}
+
+section.articles span.time:before {
+    content: "\7E \ ";
+}
+section.articles span.time {
+    font-size: 24px;
+}
+section.articles a {
+    color: #343434;
+    text-decoration: none;
+}
+section.articles div.divider {
+    border-color: silver;
+    border-width: 0 0 1px 0;
+    border-style: none none solid none;
+}
+section.articles a:hover {
+    color: #A4A4A4;
+}
+section.articles > ul > li {
+    margin-bottom: 0.5em;
+}
+hr.divider {
+    border-style: none none solid none;
+    border-color: silver;
+    border-width: 0 0 1px 0;
+    margin: -17px auto 5px auto;
+}
+ul {
+    max-width: 600px;
+    width: 100%;
+    clear: both;
+    float: left;
+    list-style: none inside;
+    padding: 0px;
+}
+nav ul li a:hover {
+    color: #A4A4A4;
+}
+nav ul li a {
+    color: #343434;
+}
+section.name {
+    font-size: 24px;
+}
+img.avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 53px 5px;
+    border-radius: 8px;
+    text-align: center;
+}
+.avatar:hover {
+    opacity: 0.9;
+}
+span.coming {
+    color: #FF4444;
+    font-style: italic;
+}
+footer {
+    width: 990px;
+}
