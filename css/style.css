@@ -24,6 +24,7 @@ section.content {
     width: 70%;
     float: left;
     padding-left: 8em;
+    margin-bottom: 4em;
 }
 section.content h1 a {
     border-style: none;
@@ -126,6 +127,7 @@ hr.divider {
 ul {
     width: 100%;
     clear: both;
+    float: left;
     list-style: none inside;
     padding: 0px;
 }
