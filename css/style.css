@@ -21,12 +21,22 @@ section.post {
     line-height: 1.5em;
 }
 section.content {
-    width: 64%;
+    width: 70%;
     float: left;
-    margin: 1em auto; 
+    padding-left: 8em;
 }
 section.content h1 a {
     border-style: none;
+}
+#scrolling-header {
+    left: 153px;
+    opacity: 1;
+    position: fixed;
+    font-family: Quando;
+    font-size: 20px;
+    font-style: italic;
+    color: #999;
+    max-width: 200px;
 }
 section.content a {
     color: #343434;
@@ -73,7 +83,7 @@ blockquote {
 }
 section.sidebar {
     position: fixed;
-    margin-left: 660px;
+    margin-left: 850px;
     margin-top: 2em;
     width: 25%;
 }
@@ -112,7 +122,6 @@ hr.divider {
     margin: -17px auto 5px auto;
 }
 ul {
-    max-width: 600px;
     width: 100%;
     clear: both;
     float: left;
