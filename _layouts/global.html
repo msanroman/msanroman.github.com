@@ -40,16 +40,14 @@
                 });
                 $("#scrolling-header").css({opacity:a}).css("left",h2s.first().position()["left"]-180-35).html(d)
             }
-            if($("#leaf-stats").length){
-                $("body").append('<div id="scrolling-header"></div>');
-                h2s=$("#content h2");
-                $(window).scroll(function(){
-                    place_scrolly_header()
-                });
-                $(window).resize(function(){
-                    place_scrolly_header()
-                })
-            }
+            $("body").append('<div id="scrolling-header"></div>');
+            h2s=$("#content h2");
+            $(window).scroll(function(){
+                place_scrolly_header()
+            });
+            $(window).resize(function(){
+                place_scrolly_header()
+            });
         </script>
     </head>
     <body>
