@@ -34,11 +34,11 @@ section.content h1 a {
     position: fixed;
     font-family: Quando;
     font-size: 23px;
-    font-style: italic;
     color: #999;
     width: 160px;
     text-align: right;
     line-height: 1.5em;
+    top: 75px;
 }
 section.content a {
     color: #343434;
