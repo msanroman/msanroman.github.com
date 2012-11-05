@@ -29,14 +29,16 @@ section.content h1 a {
     border-style: none;
 }
 #scrolling-header {
-    left: 153px;
+    left: 170px;
     opacity: 1;
     position: fixed;
     font-family: Quando;
-    font-size: 20px;
+    font-size: 23px;
     font-style: italic;
     color: #999;
-    max-width: 200px;
+    width: 160px;
+    text-align: right;
+    line-height: 1.5em;
 }
 section.content a {
     color: #343434;
