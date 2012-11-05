@@ -126,7 +126,6 @@ hr.divider {
 ul {
     width: 100%;
     clear: both;
-    float: left;
     list-style: none inside;
     padding: 0px;
 }
