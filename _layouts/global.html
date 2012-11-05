@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>{{ page.title }}</title>
-        <meta name="author" content="Miguel San Román">
+        <meta name="author" content="Miguel San Rom&aacute;n">
         <link href='http://fonts.googleapis.com/css?family=Quando|Telex' rel='stylesheet' type='text/css'>
         <link href="../css/style.css" rel="stylesheet" media="screen">
         <link href="../css/font-awesome.css" rel="stylesheet" media="screen">
@@ -38,15 +38,15 @@
                         }
                     }
                 });
-                $("#scrolling-header").css({opacity:a}).css("left",h2s.first().position()["left"]-180-35).html(d)
+                $("#scrolling-header").css({opacity:a}).css("left",h2s.first().position()["left"]-180-35).html(d);
             }
             $("body").append('<div id="scrolling-header" style="left: 199px;"></div>');
             h2s=$(".content h2");
             $(window).scroll(function(){
-                place_scrolly_header()
+                place_scrolly_header();
             });
             $(window).resize(function(){
-                place_scrolly_header()
+                place_scrolly_header();
             });
         </script>
     </head>
