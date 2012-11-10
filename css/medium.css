@@ -46,9 +46,6 @@ time {
 a {
     text-decoration: none;
 }
-section.sidebar a.link_name {
-    color: #343434;
-}
 section.meta {
     display: none;
     float:left;
@@ -144,6 +141,7 @@ section.name {
     float: left;
     margin-left: 0.7em;
     font-size: 24px;
+    color: #343434;
 }
 img.avatar {
     display: none;
