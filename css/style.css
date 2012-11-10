@@ -58,6 +58,9 @@ time {
 a {
     text-decoration: none;
 }
+section.sidebar a.link_name {
+    color: #343434;
+}
 section.meta {
     margin: 16px 70px 0px;
 }
