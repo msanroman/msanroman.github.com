@@ -63,6 +63,7 @@
 
             var h2s=null;
             function place_scrolly_header(){
+                $("body").append('<div id="scrolling-header"></div>');
                 if (check_window_width() < 1200) {
                     $('#scrolling-header').remove();
                     return false
