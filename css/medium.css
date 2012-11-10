@@ -47,6 +47,7 @@ a {
     text-decoration: none;
 }
 section.meta {
+    display: none;
     float:left;
     margin: -26px 35px 0px;
 }
@@ -125,6 +126,9 @@ section.sidebar ul {
     display: inline;
 }
 section.sidebar ul li {
+    float: left;
+    margin-top: 6px;
+    margin-left: 10px;
     list-style: none;
 }
 nav ul li a:hover {
@@ -139,11 +143,7 @@ section.name {
     font-size: 24px;
 }
 img.avatar {
-    width: 90px;
-    height: 90px;
-    margin: 0 53px 5px;
-    border-radius: 8px;
-    text-align: center;
+    display: none;
 }
 .avatar:hover {
     opacity: 0.9;
