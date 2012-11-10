@@ -43,8 +43,28 @@
         </section>
     </body>
     <script type="text/javascript">
+
+            function check_window_width() {
+                var winW = 630;
+                if (document.body && document.body.offsetWidth) {
+                 winW = document.body.offsetWidth;
+                }
+                if (document.compatMode=='CSS1Compat' &&
+                    document.documentElement &&
+                    document.documentElement.offsetWidth ) {
+                 winW = document.documentElement.offsetWidth;
+                }
+                if (window.innerWidth) {
+                    winW = window.innerWidth;
+                }
+
+                return winW;
+            }
+
             var h2s=null;
             function place_scrolly_header(){
+                if (check_window_width() < 1200)
+                    return false
                 var c=75;
                 var e=$(window).scrollTop();
                 var d=null;
@@ -73,7 +93,7 @@
                         }
                     }
                 });
-                $("#scrolling-header").css({opacity:a}).html(d).css("left",h2s.first().position()["left"] -180 -35);
+                $("#scrolling-header").css({opacity:a}).html(d).css("left",h2s.first().position()["left"]-180 -35);
             }
             $("body").append('<div id="scrolling-header"></div>');
             h2s=$(".content h2");
