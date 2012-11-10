@@ -59,19 +59,21 @@
                     d=$(this).html().replace(/&nbsp;/g," ");
                     var f=e-(b+c);
                     a=f/c;
-                    if(a>1){a=1}
-                    if(a>0.99){
-                        var j=$(this).nextAll("h2");
+                    if(a > 1){
+                        a=1
+                    }
+                    if(a > 0.99){
+                        var j = $(this).nextAll("h2");
                         if(j.length){
-                            var i=j.first().position()["top"];
-                            var g=i-e;
-                            if(g<=c*2){
-                                a=1/(c-g/2)
+                            var i = j.first().position()["top"];
+                            var g = i-e;
+                            if(g <= c*2){
+                                a = 1/(c-g/2)
                             }
                         }
                     }
                 });
-                $("#scrolling-header").css({opacity:a}).html(d);
+                $("#scrolling-header").css({opacity:a}).html(d).css("left",h2s.first().position()["left"] -180 -35);
             }
             $("body").append('<div id="scrolling-header"></div>');
             h2s=$(".content h2");
