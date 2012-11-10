@@ -141,6 +141,8 @@ section.name {
     float: left;
     margin-left: 0.7em;
     font-size: 24px;
+}
+section.name a {
     color: #343434;
 }
 img.avatar {
