@@ -63,8 +63,10 @@
 
             var h2s=null;
             function place_scrolly_header(){
-                if (check_window_width() < 1200)
+                if (check_window_width() < 1200) {
+                    $('#scrolling-header').remove();
                     return false
+                }
                 var c=75;
                 var e=$(window).scrollTop();
                 var d=null;
