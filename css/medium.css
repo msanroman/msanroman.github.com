@@ -77,6 +77,7 @@ blockquote {
 section.sidebar {
     float: left;
     display: inline;
+    font-size: 24px;
 }
 section.articles {
     font-size: 24px;
