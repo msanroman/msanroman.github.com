@@ -128,7 +128,6 @@ section.sidebar ul {
 }
 section.sidebar ul li {
     float: left;
-    margin-top: 6px;
     margin-left: 10px;
     list-style: none;
 }
