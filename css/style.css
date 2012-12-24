@@ -72,6 +72,15 @@ section.content a:hover {
     float: right;
 }
 
+.post-time {
+    color: #949494;
+    /*font-style: italic;*/
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: right;
+}
+
 a {
     text-decoration: none;
 }
