@@ -13,7 +13,7 @@ h1, h2, h3, h4 {
 h1 {
     border-bottom: 2px solid #C4C4C4;
     font-size: 36px;
-    margin-bottom: 0.2em;
+    padding: 30px;    
 }
 h2 {
     font-size: 1.5em;
@@ -52,9 +52,10 @@ section.content a {
 section.content a:hover {
     color: #A4A4A4;
 }
-time {
+.time {
     color: #949494;
     font-style: italic;
+    text-align: right;
 }
 a {
     text-decoration: none;
