@@ -126,17 +126,12 @@ hr.divider {
     border-width: 0 0 1px 0;
     margin: -17px auto 5px auto;
 }
-ul {
-    margin-left: 1em;
-}
-
 .sidebar ul {
     width: 100%;
     clear: both;
     list-style: none inside;
     padding: 0px;
 }
-
 nav ul li a:hover {
     color: #A4A4A4;
 }
