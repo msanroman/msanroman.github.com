@@ -6,32 +6,39 @@ body {
     margin: 40px auto;
     font-weight: 100;
 }
+
 h1, h2, h3, h4 {
     font-family: 'Open Sans', Helvetica, HelveticaNeue, sans-serif;
     font-weight: 100;
 }
+
 h1 {
     border-bottom: 2px solid #C4C4C4;
     font-size: 36px;
     padding: 30px;    
 }
+
 h2 {
     font-size: 1.5em;
 }
+
 section.post {
 
     line-height: 1.5em;
 }
+
 section.content {
     width: 80%;
     float: left;
     padding-left: 1em;
     margin-bottom: 4em;
 }
+
 section.content
 section.content h1 a {
     border-style: none;
 }
+
 #scrolling-header {
     left: 170px;
     opacity: 1;
@@ -43,6 +50,7 @@ section.content h1 a {
     line-height: 1.5em;
     top: 75px;
 }
+
 section.content a {
     color: #343434;
     border-color: silver;
@@ -50,9 +58,11 @@ section.content a {
     text-decoration: none;
     border-style: none none solid none;
 }
+
 section.content a:hover {
     color: #A4A4A4;
 }
+
 .time {
     color: #949494;
     /*font-style: italic;*/
@@ -61,41 +71,51 @@ section.content a:hover {
     font-weight: normal;
     float: right;
 }
+
 a {
     text-decoration: none;
 }
+
 section.meta {
     margin: 16px 70px 0px;
 }
+
 section.meta a {
     color: #343434;
 }
+
 .github {
     margin-right: 10px;
     font-size: 24px;
 }
+
 .github:hover {
     color: #A4A4A4;
 }
+
 .twitter {
     margin-left: 10px;
     font-size: 24px;
 }
+
 .twitter:hover {
     color: #A4A4A4;
 }
+
 blockquote {
     border-left: 2px solid silver;
     margin: 2em 1em;
     color: #444;
     padding: 0 1em;
 }
+
 section.sidebar {
     position: fixed;
     margin-left: 850px;
     margin-top: 2em;
     width: 25%;
 }
+
 section.articles {
     font-size: 17px;
 }
@@ -104,74 +124,86 @@ sectio.articles h1 {
     margin-bottom: 15px;
 }
 
-section.articles span.time:before {
-    /*content: "\7E \ ";*/
-}
-
 section.articles a {
     color: #343434;
     text-decoration: none;
 }
+
 section.articles div.divider {
     border-color: silver;
     border-width: 0 0 1px 0;
     border-style: none none solid none;
 }
+
 section.articles a:hover {
     color: #A4A4A4;
 }
+
 section.content a.post-list {
     border-style: none;
 }
+
 section.articles > ul > li {
     margin-bottom: 0.8em;
 }
+
 hr.divider {
     border-style: none none solid none;
     border-color: silver;
     border-width: 0 0 1px 0;
     margin-bottom: 0.8em;
 }
+
 .articles h1 {
     margin-bottom: 15px;
 }
+
 .articles ul {
     margin: 0;
     padding: 0;
     list-style: none inside;
 }
+
 .sidebar ul {
     width: 100%;
     clear: both;
     list-style: none inside;
     padding: 0px;
 }
+
 nav ul li a:hover {
     color: #A4A4A4;
 }
+
 nav ul li a {
     color: #343434;
 }
+
 section.name {
     color: #343434;
     font-size: 24px;
 }
+
 section.name a {
     color: #343434;
 }
+
 img.avatar {
     width: 90px;
     height: 90px;
     border-radius: 8px;
     text-align: center;
 }
+
 .avatar:hover {
     opacity: 0.9;
 }
+
 span.coming {
     color: #FF4444;
     font-style: italic;
 }
+
 footer {
     width: 990px;
 }
