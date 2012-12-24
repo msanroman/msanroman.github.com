@@ -100,6 +100,10 @@ section.articles {
     font-size: 17px;
 }
 
+sectio.articles h1 {
+    margin-bottom: 15px;
+}
+
 section.articles span.time:before {
     /*content: "\7E \ ";*/
 }
@@ -126,9 +130,11 @@ hr.divider {
     border-style: none none solid none;
     border-color: silver;
     border-width: 0 0 1px 0;
-    margin: -17px auto 5px auto;
+    margin-bottom: 0.8em;
 }
 .articles ul {
+    margin: 0;
+    padding: 0;
     list-style: none inside;
 }
 .sidebar ul {
