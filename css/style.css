@@ -1,12 +1,13 @@
 body {
-    font-family: 'Telex', Helvetica, HelveticaNeue, sans-serif;
+    font-family: 'Open Sans', Helvetica, HelveticaNeue, sans-serif;
     font-size: 16px;
     padding: 0.1em;
     max-width: 60em;
     margin: 40px auto;
+    font-weight: 100;
 }
 h1, h2, h3, h4 {
-    font-family: 'Quando', Helvetica, HelveticaNeue, serif;
+    font-family: 'Open Sans', Helvetica, HelveticaNeue, sans-serif;
 }
 h1 {
     border-bottom: 2px solid #C4C4C4;
