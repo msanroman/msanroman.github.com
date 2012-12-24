@@ -126,6 +126,9 @@ hr.divider {
     border-width: 0 0 1px 0;
     margin: -17px auto 5px auto;
 }
+.articles ul {
+    list-style: none inside;
+}
 .sidebar ul {
     width: 100%;
     clear: both;
