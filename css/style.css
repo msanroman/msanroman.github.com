@@ -23,11 +23,12 @@ section.post {
     line-height: 1.5em;
 }
 section.content {
-    width: 70%;
+    width: 80%;
     float: left;
-    padding-left: 8em;
+    padding-left: 1em;
     margin-bottom: 4em;
 }
+section.content
 section.content h1 a {
     border-style: none;
 }
@@ -54,8 +55,11 @@ section.content a:hover {
 }
 .time {
     color: #949494;
-    font-style: italic;
-    text-align: right;
+    /*font-style: italic;*/
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: normal;
+    float: right;
 }
 a {
     text-decoration: none;
@@ -93,15 +97,13 @@ section.sidebar {
     width: 25%;
 }
 section.articles {
-    font-size: 24px;
+    font-size: 17px;
 }
 
 section.articles span.time:before {
-    content: "\7E \ ";
+    /*content: "\7E \ ";*/
 }
-section.articles span.time {
-    font-size: 24px;
-}
+
 section.articles a {
     color: #343434;
     text-decoration: none;
@@ -171,5 +173,4 @@ footer {
     margin: 0 53px 5px;
     height: 90px;
     border-radius: 8px;
-}
 }
