@@ -148,7 +148,6 @@ section.name a {
 img.avatar {
     width: 90px;
     height: 90px;
-    margin: 0 53px 5px;
     border-radius: 8px;
     text-align: center;
 }
@@ -161,4 +160,13 @@ span.coming {
 }
 footer {
     width: 990px;
+}
+
+.avatar-container {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.9);
+    width: 90px;
+    margin: 0 53px 5px;
+    height: 90px;
+    border-radius: 8px;
+}
 }
