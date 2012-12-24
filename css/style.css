@@ -132,6 +132,9 @@ hr.divider {
     border-width: 0 0 1px 0;
     margin-bottom: 0.8em;
 }
+.articles h1 {
+    margin-bottom: 15px;
+}
 .articles ul {
     margin: 0;
     padding: 0;
