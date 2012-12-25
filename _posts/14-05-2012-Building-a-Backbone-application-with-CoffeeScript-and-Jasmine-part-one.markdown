@@ -3,8 +3,8 @@ layout: post
 title: Building a Backbone application with CoffeeScript and Jasmine (Pt. I)
 ---
 
-> This is my first post in English, lately I've noticed that my English was getting kinda rusty, and decided to change it. In brief: _I'm sorry_ :p
-
+<!-- > This is my first post in English, lately I've noticed that my English was getting kinda rusty, and decided to change it. In brief: _I'm sorry_ :p
+ -->
 ## Prelude
 
 A few weeks ago I went to the second edition of [We Love JS](http://welovejs.es/), and it was a blast! Not only [@cvillu](https://twitter.com/#!/cvillu) did show the awesomeness of CoffeeScript again, but also [@micho](https://twitter.com/#!/micho) did a great Backbone workshop that made me want to try out even more this framework.
