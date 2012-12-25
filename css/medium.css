@@ -11,7 +11,7 @@ h1, h2, h3, h4 {
     font-weight: 100;
 }
 h1 {
-    border-bottom: 2px solid #C4C4C4;
+    border-bottom: 1px solid #C4C4C4;
     font-size: 36px;
     padding: 30px 0px;    
 }
