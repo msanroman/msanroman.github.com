@@ -133,11 +133,12 @@ nav {
 }
 section.sidebar ul {
     list-style: none;
-    display: inline;
+    padding-left: 11em;
+    font-size: 20px;
 }
 section.sidebar ul li {
     float: left;
-    margin-top: 6px;
+    margin-top: 3px;
     margin-left: 10px;
     list-style: none;
 }
