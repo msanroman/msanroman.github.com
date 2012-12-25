@@ -134,6 +134,7 @@ nav {
 section.sidebar ul {
     list-style: none;
     padding-left: 11em;
+    margin-top: 26px;
     font-size: 20px;
 }
 section.sidebar ul li {
