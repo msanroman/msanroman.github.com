@@ -94,10 +94,6 @@ section.sidebar {
 section.articles {
     font-size: 24px;
 }
-/*
-section.articles span.time:before {
-    content: "\7E \ ";
-}*/
 section.articles span.time {
     font-size: 24px;
 }
@@ -123,7 +119,7 @@ hr.divider {
     border-style: none none solid none;
     border-color: silver;
     border-width: 0 0 1px 0;
-    margin: -17px auto 5px auto;
+    margin-bottom: 0.8em;
 }
 ul {
     width: 100%;
