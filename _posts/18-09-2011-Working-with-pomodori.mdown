@@ -4,6 +4,7 @@ title: 'Working with pomodori'
 ---
 
 For some months I've added the __pomodoro technique__ to my tasks management. If you don't now about this technique, it's pretty simple and you only need a pen, a paper and a timer:
+
 + Pick up the more important task that's in your tasks list for today.
 + Put the timer to 25 minutes.
 + Focus **only** in this task until the alarm rings.
