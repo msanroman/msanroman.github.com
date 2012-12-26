@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'PHP continous testing script for NotifyOSD systems'
+permalink: 'php-autotest'
 ---
 
 [@ArturoHerrero](https://twitter.com/#!/ArturoHerrero) published in [his blog](http://arturoherrero.com/2011/04/08/groovy-autotest-on-ubuntu/) a very interesting post about how he built a test-runner script using NotifyOSD, which is notification system used in Ubuntu, KUbuntu, Fedora and much more.

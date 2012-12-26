@@ -1,5 +1,5 @@
 markdown: rdiscount
-permalink: /:title
+permalink: /:permalink
 auto: true
 pygments: true
 paginate: 5

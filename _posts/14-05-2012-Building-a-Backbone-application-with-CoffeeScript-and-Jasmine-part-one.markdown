@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a Backbone application with CoffeeScript and Jasmine (Pt. I)
+permalink: 'pomodori-js-part-one'
 ---
 
 <!-- > This is my first post in English, lately I've noticed that my English was getting kinda rusty, and decided to change it. In brief: _I'm sorry_ :p
