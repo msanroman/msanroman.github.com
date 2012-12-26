@@ -87,7 +87,7 @@ a {
 }
 
 section.meta {
-    margin: 16px 70px 0px;
+    margin: 16px 16px 0px;
 }
 
 section.meta a {
@@ -95,20 +95,25 @@ section.meta a {
 }
 
 .github {
-    margin-right: 10px;
     font-size: 24px;
-}
-
-.github:hover {
-    color: #A4A4A4;
 }
 
 .twitter {
-    margin-left: 10px;
+    margin-left: 20px;
     font-size: 24px;
 }
 
-.twitter:hover {
+.music {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+.instagram {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+.twitter:hover, .music:hover, .github:hover, .instagram:hover {
     color: #A4A4A4;
 }
 
