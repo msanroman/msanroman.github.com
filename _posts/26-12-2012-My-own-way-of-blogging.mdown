@@ -7,7 +7,7 @@ title: My own way of blogging (or why I prefer GitHub Pages over Tumblr & Wordpr
 
 *I'm sorry.*
 
-But since my last post (yeah, the one I did half a year ago) I've realized how much of a pain in the ass is working with Markdown + embedded code in Tumblr, which was were I did my other (few) posts. Before joining Tumblr, I realized how much of a pain in the ass was creating a blog in Wordpress or Blogspot.
+But since my last post (yeah, the one I did half a year ago) I've realized how much of a pain in the ass is working with Markdown + embedded code in Tumblr, which was where I did my other (few) posts. Before joining Tumblr, I realized how much of a pain in the ass was creating a blog in Wordpress or Blogspot.
 
 But it's not about the tools, it's about me.
 
