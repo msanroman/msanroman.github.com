@@ -8,8 +8,9 @@ title: 'Miguel San Rom&aacute;n'
             <ul>
             {% for post in site.posts %}
                 <li>
+                    <span class="time">{{ post.date | date: "%B %e, %Y"}}</span>
                     <a href="{{ post.url }}" class="post-list">
-                        {{ post.title }} <span class="time">{{ post.date | date: "%B %e, %Y"}}</span>
+                        {{ post.title }}
                     </a>
                 </li>
                 <hr class="divider"></hr>
