@@ -4,7 +4,7 @@ title: Maybe the problem isn't "Fat Model"
 permalink: maybe-the-problem-is-not-fat-model
 ---
 
-*(or maybe, it isn't the root of the problem)*
+*(well, it isn't the root of it)*
 
 ## Madrid.rb
 
