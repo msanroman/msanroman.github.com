@@ -3,7 +3,7 @@ body {
     font-size: 16px;
     padding: 0.1em;
     max-width: 60em;
-    margin: 40px auto;
+    margin: 25px auto;
     font-weight: 100;
 }
 h1, h2, h3, h4 {
@@ -131,21 +131,14 @@ hr.divider {
     padding: 0;
     list-style: none inside;
 }
-ul {
-    width: 100%;
-    clear: both;
-    list-style: none inside;
-    padding: 0px;
-}
 nav {
     display: inline;
 }
 section.sidebar ul {
     list-style: none;
     padding-left: 12em;
+    padding-top: 3px;
     margin: 0;
-
-    margin-top: 26px;
     font-size: 20px;
 }
 section.sidebar ul li {
