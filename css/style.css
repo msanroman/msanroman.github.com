@@ -92,23 +92,10 @@ section.meta {
 
 section.meta a {
     color: #343434;
-}
-
-.github {
     font-size: 24px;
 }
 
-.twitter {
-    margin-left: 20px;
-    font-size: 24px;
-}
-
-.music {
-    margin-left: 20px;
-    font-size: 24px;
-}
-
-.instagram {
+.github,.music,.instagram {
     margin-left: 20px;
     font-size: 24px;
 }
