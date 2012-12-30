@@ -61,25 +61,18 @@ a {
     text-decoration: none;
 }
 section.meta {
-    display: none;
-    float:left;
-    margin: -26px 35px 0px;
+    /*display: none;*/
+    float:right;
+    margin: -3px 35px 0px;
+    font-size: 30px;
 }
 section.meta a {
     color: #343434;
 }
-.github {
-    margin-right: 10px;
-    font-size: 40px;
+.github,.instagram,.music {
+    margin-left: 20px;
 }
-.github:hover {
-    color: #A4A4A4;
-}
-.twitter {
-    margin-left: 10px;
-    font-size: 40px;
-}
-.twitter:hover {
+.github:hover,.instagram:hover,.music:hover,.twitter:hover {
     color: #A4A4A4;
 }
 blockquote {
@@ -136,14 +129,12 @@ nav {
 }
 section.sidebar ul {
     list-style: none;
-    padding-left: 12em;
-    padding-top: 3px;
+    padding-left: 10em;
     margin: 0;
-    font-size: 20px;
+    font-size: 24px;
 }
 section.sidebar ul li {
     float: left;
-    /*margin-top: 3px;*/
     margin-left: 10px;
     display: inline;
 }
@@ -157,6 +148,7 @@ section.name {
     float: left;
     margin-left: 0.7em;
     font-size: 24px;
+    font-weight: 400;
 }
 section.name a {
     color: #343434;
