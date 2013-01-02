@@ -33,56 +33,285 @@ You can find my code at the [GitHub repo](http://github.com/msanroman/pomodori.j
 
 Let's start defining our Task class:
 
-<script src="https://gist.github.com/2690652.js"> </script>
+{% highlight coffeescript %}
+describe 'Task', ->
+
+  it "should exist", ->
+    expect(PomoJS.Models.Task).toBeDefined()
+{% endhighlight %}
 
 This spec will fail because there's nothing defined in our application yet! We should add a _Models_ collection or namespace and a _Task_ class in that collection.
 
 So, in order to do it:
 
-<script src="https://gist.github.com/2690674.js"> </script>
+{% highlight coffeescript %}
+#app.coffee
+ 
+window.PomoJS = {
+  Models: {}
+}
+ 
+#Task.coffee
+ 
+class PomoJS.Models.Task
+{% endhighlight %}
 
 Now our first test should pass! Now we can start defining some default values for our tasks' attributes, like:
 
-<script src="https://gist.github.com/2690689.js"> </script>
+{% highlight coffeescript %}
+describe 'Task', ->
+ 
+  beforeEach ->
+    @task = new PomoJS.Models.Task
+ 
+  it "should exist", ->
+    expect(PomoJS.Models.Task).toBeDefined()
+ 
+  describe "default values for new tasks", ->
+    it "should have an empty string as default name", ->
+      expect(@task.get "name").toEqual ""
+ 
+    it "shouldn't be completed", ->
+      expect(@task.get "completed").toEqual false
+ 
+    it "should have no pomodoros assigned as default estimation", ->
+      expect(@task.get "estimation").toEqual 0
+{% endhighlight %}
 
 It will fail, announcing us that our object has no method _'get'_, so now we must make our class Task extend from Backbone.Model, and our tests will fail for the right reason: our attributes are not defined, and naturally have no default value, so we must define our _defaults_ like this:
 
-<script src="https://gist.github.com/2690702.js"> </script>
+{% highlight coffeescript %}
+class PomoJS.Models.Task extends Backbone.Model
+ 
+  defaults: {
+    name: '',
+    completed: false,
+    estimation: 0
+  }
+{% endhighlight %}
 
 Green again, now we can add an abstraction to this _get "element"_ call creating a getter for each of our attributes, and verify that this methods call the _get_ method with the right value:
 
-<script src="https://gist.github.com/2690712.js"> </script>
-
+{% highlight coffeescript %}
+describe 'Task', ->
+ 
+  #(...)
+ 
+  describe "getters", ->
+ 
+    describe "getId", ->
+ 
+      it "should be defined", ->
+        expect(@task.getId).toBeDefined()
+      it "should return model's id", ->
+        stub = sinon.stub(@task, 'get').returns 1
+ 
+        expect(@task.getId()).toEqual 1
+        expect(stub.calledWith('id')).toBeTruthy()
+ 
+    describe "getName", ->
+ 
+      it "should be defined", ->
+        expect(@task.getName).toBeDefined()
+ 
+      it "should return its name", ->
+        spyOn(@task, 'get').andReturn 'Trololo!'
+ 
+        expect(@task.getName()).toEqual 'Trololo!'
+        expect(@task.get).toHaveBeenCalledWith('name')
+ 
+    describe "isCompleted", ->
+ 
+      it "should be defined", ->
+        expect(@task.isCompleted).toBeDefined()
+      it "should return value for the completed attribute", ->
+        spyOn(@task, 'get').andReturn(false)
+ 
+        expect(@task.isCompleted()).toEqual false
+        expect(@task.get).toHaveBeenCalledWith('completed')
+ 
+    describe "getEstimation", ->
+ 
+      it "should be defined", ->
+        expect(@task.getEstimation).toBeDefined()
+      it "should return its estimation", ->
+        spyOn(@task, 'get').andReturn 5
+ 
+        expect(@task.getEstimation()).toEqual 5
+        expect(@task.get).toHaveBeenCalledWith("estimation")
+{% endhighlight %}
 Then we just create these methods in our Task class:
 
-<script src="https://gist.github.com/2690722.js"> </script>
+{% highlight coffeescript %}
+class PomoJS.Models.Task extends Backbone.Model
+ 
+  defaults: {
+    name: '',
+    completed: false,
+    estimation: 0
+  }
+ 
+  getId: -> @.get 'id'
+ 
+  getName: -> @.get 'name'
+ 
+  isCompleted: -> @.get 'completed'
+ 
+  getEstimation: -> @.get 'estimation'
+{% endhighlight %}
 
 And now here comes one of the juiciest parts from our model's description: we must define the behaviour for the _save_ method of our model. It should send a request to our server, sending it a JSON object with our task's contents. For that, I use the marvelous sinon's fakeServer, and just capture what is being sent:
 
-<script src="https://gist.github.com/2690750.js"> </script>
+{% highlight coffeescript %}
+describe "save", ->
+ 
+    beforeEach ->
+      @server = sinon.fakeServer.create()
+ 
+    afterEach ->
+      @server.restore()
+ 
+    it 'sends valid data to the server', ->
+      @task.save {name: 'new task name', estimation: 1}
+ 
+      request = @server.requests[0]
+ 
+      params = JSON.parse(request.requestBody)
+      expect(params.task).toBeDefined()
+      expect(params.task.name).toEqual 'new task name'
+      expect(params.task.complete).toBeFalsy()
+      expect(params.task.estimation).toEqual 1
+{% endhighlight %}
 
 We will get an error message telling us: _A "url" property or function must be specified_ - so lets create this property in our Task class, an let it be "/tasks", and now lets write a toJSON method for our class, because it will get called when calling the _save_ method:
 
-<script src="https://gist.github.com/2690757.js"> </script>
+{% highlight coffeescript %}
+class PomoJS.Models.Task extends Backbone.Model
+ 
+  url: "/tasks"
+ 
+  defaults: {
+    name: '',
+    completed: false,
+    estimation: 0
+  }
+ 
+  getId: -> @.get 'id'
+ 
+  getName: -> @.get 'name'
+ 
+  isCompleted: -> @.get 'completed'
+ 
+  getEstimation: -> @.get 'estimation'
+ 
+  toJSON: -> {task: @.attributes}
+{% endhighlight %}
 
 We have defined a value for our url property, but we should define it better for some different actions:
 
 + On task creation: POST "/tasks"
 + On task update: PUT "tasks/{task_id}"
 
-<script src="https://gist.github.com/2690789.js"> </script>
+{% highlight coffeescript %}
+    describe 'server requests', ->
+ 
+      describe 'on create', ->
+ 
+        beforeEach ->
+          new_task = new PomoJS.Models.Task()
+          new_task.save()
+          @request = @server.requests[0]
+ 
+        it 'should be POST', ->
+          expect(@request.method).toEqual 'POST'
+ 
+        it 'should have /tasks as url', ->
+          expect(@request.url).toEqual '/tasks'
+ 
+      describe 'on update', ->
+ 
+        beforeEach ->
+          @task.save(id: 13)
+          @request = @server.requests[0]
+ 
+        it 'should be PUT', ->
+          expect(@request.method).toEqual 'PUT'
+ 
+        it 'should have /tasks/13 as url', ->
+          expect(@request.url).toEqual '/tasks/13'
+{% endhighlight %}
 
 So let's modify our url property to be a method like this:
 
-<script src="https://gist.github.com/2690794.js"> </script>
+{% highlight coffeescript %}
+class PomoJS.Models.Task extends Backbone.Model
+ 
+  url: ->
+    url = "/tasks"
+    url += "/#{@.getId()}" unless @.isNew()
+    return url
+ 
+  defaults: {
+    name: '',
+    completed: false,
+    estimation: 0
+  }
+ 
+  getId: -> @.get 'id'
+ 
+  getName: -> @.get 'name'
+ 
+  isCompleted: -> @.get 'completed'
+ 
+  getEstimation: -> @.get 'estimation'
+ 
+  toJSON: -> {task: @.attributes}
+{% endhighlight %}
 
 Now, we can define some attribute validation: we can't save a task with a negative id, nor one with a negative estimation:
 
-<script src="https://gist.github.com/2690799.js"> </script>
+{% highlight coffeescript %}
+    it "won't save with negative id", ->
+      @task.set({id: -1})
+      expect(@task.isValid()).toBeFalsy()
+ 
+    it "won't save with negative estimation", ->
+      @task.set({estimation: -2})
+      expect(@task.isValid()).toBeFalsy()
+{% endhighlight %}
 
 And to make it pass:
 
-<script src="https://gist.github.com/2690802.js"> </script>
+{% highlight coffeescript %}
+class PomoJS.Models.Task extends Backbone.Model
+ 
+  url: ->
+    url = "/tasks"
+    url += "/#{@.getId()}" unless @.isNew()
+    return url
+ 
+  defaults: {
+    name: '',
+    completed: false,
+    estimation: 0
+  }
+ 
+  getId: -> @.get 'id'
+ 
+  getName: -> @.get 'name'
+ 
+  isCompleted: -> @.get 'completed'
+ 
+  getEstimation: -> @.get 'estimation'
+ 
+  validate: (attributes) -> 
+    if @.getId() < 0
+      return 'invalid id'
+    if @.getEstimation() < 0
+      return 'invalid estimation'
+ 
+  toJSON: -> {task: @.attributes}
+{% endhighlight %}
 
 Yeah, I know, the validate method contains some ugly code duplication - we'll get into refactoring that later. But for now, I think that this post has grown far too long than I'd expected and that offers quite a bunch of information of how to test some Backbone models and how they work.
 
