@@ -1,0 +1,26 @@
+---
+layout: post
+title: 'Progitivity'
+permalink: 'progitivity'
+---
+
+## Basic aliases
+
+{% highlight bash linenos %}
+[alias]
+    ci = commit
+    aa = add --all
+    st = status -sb
+    pom = push origin master
+{% endhighlight %}
+
+## More complex aliases
+
+## Parameterized aliases
+
+## Git flow
+
+## Hooks
+
+
+## Autocompleting
