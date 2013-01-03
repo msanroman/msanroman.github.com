@@ -2,6 +2,7 @@
 layout: post
 title: Maybe the problem isn't "Fat Model"
 permalink: maybe-the-problem-is-not-fat-model
+published: true
 ---
 
 *(well, it isn't the root of it)*

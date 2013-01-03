@@ -2,6 +2,7 @@
 layout: post
 title: 'Working with pomodori'
 permalink: 'pomodoro'
+published: true
 ---
 
 For some months I've added the __pomodoro technique__ to my tasks management. If you don't now about this technique, it's pretty simple and you only need a pen, a paper and a timer:
