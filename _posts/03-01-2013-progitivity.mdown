@@ -13,7 +13,7 @@ It's time for some *progitivity*.
 
 Here's an example of how a git status looks right now in this site's repo:
 
-{% highlight console linenos %}
+{% highlight console %}
 in msanroman.github.com/ on master 
 λ git status
 # On branch master
