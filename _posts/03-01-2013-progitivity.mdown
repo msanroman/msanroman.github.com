@@ -2,7 +2,7 @@
 layout: post
 title: 'Progitivity'
 permalink: 'progitivity'
-published: false
+published: true
 ---
 
 Every now and then I start searching about how to be more productive with some tool. So I thought it might come in handy sharing what I've learned about being more productive with git, and which are my current settings. 
