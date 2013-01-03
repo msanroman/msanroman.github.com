@@ -5,6 +5,7 @@ body {
     max-width: 60em;
     margin: 40px auto;
     font-weight: 100;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
