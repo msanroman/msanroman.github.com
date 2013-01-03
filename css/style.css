@@ -6,11 +6,12 @@ body {
     margin: 40px auto;
     font-weight: 100;
     -webkit-font-smoothing: antialiased;
+    text-shadow: 0 0 1px rgba(0,0,0,0.2);
 }
 
 h1, h2, h3, h4 {
     font-family: 'Open Sans', Helvetica, HelveticaNeue, sans-serif;
-    font-weight: 100;
+    font-weight: 400;
 }
 
 h1 {
@@ -44,7 +45,8 @@ section.content h1 a {
     left: 170px;
     opacity: 1;
     position: fixed;
-    font-size: 23px;
+    font-size: 24px;
+    font-weight: 400;
     color: #999;
     width: 160px;
     text-align: right;
@@ -144,6 +146,7 @@ section.articles a:hover {
 
 section.content a.post-list {
     border-style: none;
+    font-weight: normal;
 }
 
 section.articles > ul > li {
