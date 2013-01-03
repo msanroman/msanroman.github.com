@@ -2,4 +2,4 @@ markdown: rdiscount
 permalink: /:permalink
 auto: true
 pygments: true
-paginate: 5
+future: false
