@@ -154,17 +154,17 @@ Here we could split again the execution path, and add a **ton** of duplicated co
 
 solve: ->
     disks = @game.firstTower.size()
-    @solve_rec(disks, 1, 2, 3)
+    @solve_recursively(disks, 1, 2, 3)
 
-solve_rec: (disks, source, inter, destiny) ->
+solve_recursively: (disks, source, inter, destiny) ->
     if @only_one_movement_remaining disks
         @log_movement source, destiny
         @game.moveFrom(source).to(destiny)
     else
-        @solve_rec(disks-1, source, destiny, inter)
+        @solve_recursively(disks-1, source, destiny, inter)
         @log_movement source, destiny
         @game.moveFrom(source).to(destiny)
-        @solve_rec(disks-1, inter, source, destiny)
+        @solve_recursively(disks-1, inter, source, destiny)
 {% endhighlight %}
 
 After checking for 4 and 5 disks that it works as expected, the only thing that I do is remove some ugly duplication and try to get a better naming for each variable. Finally, my class looks like this:
@@ -180,15 +180,13 @@ class HanoiSolver
 
     solve: ->
         disks = @game.firstTower.size()
-        @solve_rec(disks, @TOWERS['first'], @TOWERS['second'], @TOWERS['third'])
+        @solve_recursively(disks, @TOWERS['first'], @TOWERS['second'], @TOWERS['third'])
 
-    solve_rec: (remaining_disks, source, middle, destiny) ->
-        if @only_one_movement_remaining remaining_disks
+    solve_recursively: (remaining_disks, source, middle, destiny) ->
+        if @are_movements_remaining remaining_disks
+            @solve_recursively remaining_disks-1, source, destiny, middle
             @moveDisk source, destiny
-        else
-            @solve_rec remaining_disks-1, source, destiny, middle
-            @moveDisk source, destiny
-            @solve_rec remaining_disks-1, middle, source, destiny
+            @solve_recursively remaining_disks-1, middle, source, destiny
 
     moveDisk: (source, destiny) ->
         @log_movement source, destiny
@@ -200,8 +198,8 @@ class HanoiSolver
     get_log: ->
         @steps
 
-    only_one_movement_remaining: (remaining_disks) ->
-        remaining_disks == 1
+    are_movements_remaining: (remaining_disks) ->
+        remaining_disks > 0
 {% endhighlight %}
 
 ##Wrapping up
