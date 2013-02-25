@@ -5,8 +5,6 @@ permalink: 'transformation-priority-premise-hanoi-kata'
 published: true
 ---
 
-##The Tower of Hanoi puzzle
-
 This month's [12meses12katas](http://12meses12katas.com/) problem is the Tower of Hanoi puzzle. If you don't know which one is, here's the Wikipedia description:
 
 > The **Tower of Hanoi** is a mathematical game or puzzle. It consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.

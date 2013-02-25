@@ -11,8 +11,8 @@ site_url: 'http://www.msanroman.me'
         <meta name="twitter:url" content="{{page.site_url}}/{{ page.permalink }}">
         <meta name="twitter:title" content="{{ page.title }}">
         {% if (page.permalink | size )!= 0 %}
-        <meta name="twitter:description" content="{{ page.content | truncate: 200}}">
-        <meta name="description" content="{{ page.content | truncate: 200}}">
+        <meta name="twitter:description" content="{{ page.content | truncate: 200 |markdownify | strip_html}}">
+        <meta name="description" content="{{ page.content | truncate: 200 | markdownify | strip_html}}">
         {% else %}
         <meta name="description" content="A software gentleman's personal blog about agile development, apprenticeship and more.">
         <meta name="twitter:description" content="A software gentleman's personal blog about agile development, apprenticeship and more.">
