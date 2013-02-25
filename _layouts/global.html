@@ -12,7 +12,9 @@ site_url: 'http://www.msanroman.me'
         <meta name="twitter:title" content="{{ page.title }}">
         {% if (page.permalink | size )!= 0 %}
         <meta name="twitter:description" content="{{ page.content | truncate: 200}}">
+        <meta name="description" content="{{ page.content | truncate: 200}}">
         {% else %}
+        <meta name="description" content="A software gentleman's personal blog about agile development, apprenticeship and more.">
         <meta name="twitter:description" content="A software gentleman's personal blog about agile development, apprenticeship and more.">
         {% endif %}
         <meta name="twitter:image" content="http://www.gravatar.com/avatar/b9658e531ce58a80bc981e5f375c7759.jpg">
