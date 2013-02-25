@@ -99,12 +99,12 @@ section.meta a {
     font-size: 24px;
 }
 
-.github,.music,.instagram {
+.github,.music,.mail {
     margin-left: 20px;
     font-size: 24px;
 }
 
-.twitter:hover, .music:hover, .github:hover, .instagram:hover {
+.twitter:hover, .music:hover, .github:hover, .mail:hover {
     color: #A4A4A4;
 }
 

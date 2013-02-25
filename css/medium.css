@@ -71,10 +71,10 @@ section.meta {
 section.meta a {
     color: #343434;
 }
-.github,.instagram,.music {
+.github,.mail,.music {
     margin-left: 20px;
 }
-.github:hover,.instagram:hover,.music:hover,.twitter:hover {
+.github:hover,.mail:hover,.music:hover,.twitter:hover {
     color: #A4A4A4;
 }
 blockquote {
