@@ -1,9 +1,21 @@
+---
+site_url: 'http://www.msanroman.me'
+---
 <html>
     <head>
         <title>{{ page.title }}</title>
         <meta charset="utf-8">
         <meta name="author" content="Miguel San Rom&aacute;n">
         <meta name="description" content={{ page.title }}>
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="{{page.site_url}}/{{ page.permalink }}">
+        <meta name="twitter:title" content="{{ page.title }}">
+        {% if (page.permalink | size )!= 0 %}
+        <meta name="twitter:description" content="{{ page.content | truncate: 200}}">
+        {% else %}
+        <meta name="twitter:description" content="A software gentleman's personal blog about agile development, apprenticeship and more.">
+        {% endif %}
+        <meta name="twitter:image" content="http://www.gravatar.com/avatar/b9658e531ce58a80bc981e5f375c7759.jpg">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" href="/favicon.ico" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>

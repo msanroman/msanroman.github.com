@@ -1,10 +1,11 @@
 body {
     font-family: 'Open Sans', Helvetica, HelveticaNeue, sans-serif;
     font-size: 16px;
+    color: #2F2F2F;
     padding: 0.1em;
     max-width: 60em;
     margin: 40px auto;
-    font-weight: 100;
+    font-weight: 200;
     -webkit-font-smoothing: antialiased;
     text-shadow: 0 0 1px rgba(0,0,0,0.2);
 }
