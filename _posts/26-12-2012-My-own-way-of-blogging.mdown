@@ -1,6 +1,6 @@
 ---
 layout: post
-title: My own way of blogging (or why I prefer GitHub Pages over Tumblr & Wordpress)
+title: My own way of blogging (or why I prefer GitHub Pages over Tumblr &amp; Wordpress)
 permalink: My-own-way-of-blogging
 published: true
 ---
