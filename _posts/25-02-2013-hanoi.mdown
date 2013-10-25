@@ -1,1 +1,211 @@
----layout: posttitle: "Applying the transformation priority premise to Hanoi Tower's kata"permalink: 'transformation-priority-premise-hanoi-kata'published: true---This month's [12meses12katas](http://12meses12katas.com/) problem is the Tower of Hanoi puzzle. If you don't know which one is, here's the Wikipedia description:> The **Tower of Hanoi** is a mathematical game or puzzle. It consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:>+ Only one disk may be moved at a time.+ Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, on top of the other disks that may already be present on that rod.+ No disk may be placed on top of a smaller disk.##The transformation priority premiseI remember trying to solve it using TDD a long time ago and getting frustrated because I didn't know how to use the tests to guide my code to the solving algorithm, but the other day at [Agile Barcelona's](http://agile-barcelona.org/) coding dojo I remembered Uncle Bob's transformation priority premise and thought that this problem was a cool exercice to check this premise out. Uncle Bob's transformation priority premise is this following set of transformations:+ **({}–>nil)** no code at all->code that employs nil+ **(nil->constant)**+ **(constant->constant+)** a simple constant to a more complex constant+ **(constant->scalar)** replacing a constant with a variable or an argument+ **(statement->statements)** adding more unconditional statements.+ **(unconditional->if)** splitting the execution path+ **(scalar->array)**+ **(array->container)**+ **(statement->tail-recursion)**+ **(if->while)**+ **(statement->recursion)**+ **(expression->function)** replacing an expression with a function or algorithm+ **(variable->assignment)** replacing the value of a variable.+ **(case)** adding a case (or else) to an existing switch or ifAlthough these transformations seem like refactors, they aren't refactors. Refactors are used to transform code's structure without changing its behaviour, and these transformations are behaviour changes to pass from red to green quickly and helping you to pick the *simplest* change (i.e: picking an upper rule before picking one of the lowest).##Solving the kataBefore I start let me emphasize that it is the first time I try to apply the transformation priority premise in my code (at least, in a conciously way), I might get the wrong choice, and every comment about my solution will be appreciated.I ended up with three classes in my final solution:+ HanoiTowers: responsible of managing the whole game, giving the API for moving disks from one rod (or *tower*) to another.+ Tower: responsible for the stack-like behavior of the three towers used in the class described above.+ HanoiSolver: responsible of solving the puzzle, interacting with the HanoiTowers game, choosing when to move from one tower to another.The class that I wanna talk about is *HanoiSolver*, since it's the one that hold the algorithm for this problem, but if you wanna see the whole solution it can be found [here](http://github.com/msanroman/hanoi_kata).###Implementing HanoiSolverLet's start describing what should do our solver with only one disk:{% highlight coffeescript %}describe 'with one disk', ->    it 'should solve it in a single step, moving from first to third', ->        solver = new HanoiSolver(new HanoiTowers(1))        solver.solve()        steps = solver.get_log()        steps.should.have.length 1        steps[0].should.equal 'From 1 to 3'{% endhighlight %}The simplest solution for this test is:{% highlight coffeescript %}class HanoiSolver    constructor: (game) ->        @solved = false        @steps = []    solve: ->        @steps.push "From 1 to 3"        @game.moveFrom(1).to(3)    get_log: ->        @steps{% endhighlight %}Ok, we are green. Let's go ahead and test what should do for two disks:{% highlight coffeescript %}    it 'for two disks should solve it in 3 steps', ->        solver = new HanoiSolver(new HanoiTowers(2))        solver.solve()        steps = solver.get_log()        steps.should.have.length 3        steps[0].should.equal 'From 1 to 2'        steps[1].should.equal 'From 1 to 3'        steps[2].should.equal 'From 2 to 3'{% endhighlight %}Now the first transformation we can use is the **unconditional -> if**, and split the execution path for 1 disk from the one for 2 disks:{% highlight coffeescript %}solve: ->    disks = @game.firstTower.size()    if disks == 1        @steps.push "From 1 to 3"        @game.moveFrom(1).to(3)    else        @steps.push "From 1 to 2"        @game.moveFrom(1).to(2)        @steps.push "From 1 to 3"        @game.moveFrom(1).to(3)        @steps.push "From 2 to 3"        @game.moveFrom(2).to(3){% endhighlight %}And we can refactor it a little bit, adding some additional methods:{% highlight coffeescript %}solve: ->    disks = @game.firstTower.size()    if @only_one_movement_remaining disks        @log_movement 1, 3        @game.moveFrom(1).to(3)    else        @log_movement 1, 2        @game.moveFrom(1).to(2)        @log_movement 1, 3        @game.moveFrom(1).to(3)        @log_movement 2, 3        @game.moveFrom(2).to(3)log_movement: (source, destiny) ->    @steps.push "From #{source} to #{destiny}"only_one_movement_remaining: (disks) ->    disks == 1{% endhighlight %}The next thing we should test is 3 disks' behaviour:{% highlight coffeescript %}    it 'for three disks should solve it in 7 steps', ->        solver = new HanoiSolver(new HanoiTowers(3))        solver.solve()        steps = solver.get_log()        steps[0].should.equal 'From 1 to 3'        steps[1].should.equal 'From 1 to 2'        steps[2].should.equal 'From 3 to 2'        steps[3].should.equal 'From 1 to 3'        steps[4].should.equal 'From 2 to 1'        steps[5].should.equal 'From 2 to 3'        steps[6].should.equal 'From 1 to 3'        steps.should.have.length 7{% endhighlight %}Here we could split again the execution path, and add a **ton** of duplicated code (which only would serve us for the 3 disks' case). Instead of doing this, and remembering Uncle Bob's mantra: *As the tests get more specific, the code gets more generic.*, we should see for a way to generalize our existing code using one of the transformations indicated above, and I choose **statement -> recursion**, moving from my current statements inside the if seems the simplest move I can make to solve this test:{% highlight coffeescript %}solve: ->    disks = @game.firstTower.size()    @solve_recursively(disks, 1, 2, 3)solve_recursively: (disks, source, inter, destiny) ->    if @only_one_movement_remaining disks        @log_movement source, destiny        @game.moveFrom(source).to(destiny)    else        @solve_recursively(disks-1, source, destiny, inter)        @log_movement source, destiny        @game.moveFrom(source).to(destiny)        @solve_recursively(disks-1, inter, source, destiny){% endhighlight %}After checking for 4 and 5 disks that it works as expected, the only thing that I do is remove some ugly duplication and try to get a better naming for each variable. Finally, my class looks like this:{% highlight coffeescript %}class HanoiSolver    TOWERS: {first: 1, second: 2, third: 3}    constructor: (game) ->        @game = game        @steps = []    solve: ->        disks = @game.firstTower.size()        @solve_recursively(disks, @TOWERS['first'], @TOWERS['second'], @TOWERS['third'])    solve_recursively: (remaining_disks, source, middle, destiny) ->        if @there_are_movements_remaining remaining_disks            @solve_recursively remaining_disks-1, source, destiny, middle            @moveDisk source, destiny            @solve_recursively remaining_disks-1, middle, source, destiny    moveDisk: (source, destiny) ->        @log_movement source, destiny        @game.moveFrom(source).to(destiny)    log_movement: (source, destiny) ->        @steps.push "From #{source} to #{destiny}"    get_log: ->        @steps    there_are_movements_remaining: (remaining_disks) ->        remaining_disks > 0{% endhighlight %}##Wrapping upOf course, the final algorithm isn't mine, but a recursive solution I learned a lot of time ago. Applying these premises has allowed me to TDD this logic much more easily than without them (in fact, as I told at the beggining of this post, I didn't know how to do it).Applying the correct tests and making the correct transformations to my code helped me to triangulate everything towards the resulting algorithm.As I told before, if you wanna check my complete solution it can be found [here](http://github.com/msanroman/hanoi_kata).
+---
+layout: post
+title: "Applying the transformation priority premise to Hanoi Tower's kata"
+permalink: 'transformation-priority-premise-hanoi-kata'
+published: true
+---
+
+This month's [12meses12katas](http://12meses12katas.com/) problem is the Tower of Hanoi puzzle. If you don't know which one is, here's the Wikipedia description:
+
+> The **Tower of Hanoi** is a mathematical game or puzzle. It consists of three rods, and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+The objective of the puzzle is to move the entire stack to another rod, obeying the following rules:
+>
++ Only one disk may be moved at a time.
++ Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, on top of the other disks that may already be present on that rod.
++ No disk may be placed on top of a smaller disk.
+
+##The transformation priority premise
+
+I remember trying to solve it using TDD a long time ago and getting frustrated because I didn't know how to use the tests to guide my code to the solving algorithm, but the other day at [Agile Barcelona's](http://agile-barcelona.org/) coding dojo I remembered Uncle Bob's transformation priority premise and thought that this problem was a cool exercice to check this premise out. Uncle Bob's transformation priority premise is this following set of transformations:
+
++ **({}–>nil)** no code at all->code that employs nil
++ **(nil->constant)**
++ **(constant->constant+)** a simple constant to a more complex constant
++ **(constant->scalar)** replacing a constant with a variable or an argument
++ **(statement->statements)** adding more unconditional statements.
++ **(unconditional->if)** splitting the execution path
++ **(scalar->array)**
++ **(array->container)**
++ **(statement->tail-recursion)**
++ **(if->while)**
++ **(statement->recursion)**
++ **(expression->function)** replacing an expression with a function or algorithm
++ **(variable->assignment)** replacing the value of a variable.
++ **(case)** adding a case (or else) to an existing switch or if
+
+Although these transformations seem like refactors, they aren't refactors. Refactors are used to transform code's structure without changing its behaviour, and these transformations are behaviour changes to pass from red to green quickly and helping you to pick the *simplest* change (i.e: picking an upper rule before picking one of the lowest).
+
+##Solving the kata
+
+Before I start let me emphasize that it is the first time I try to apply the transformation priority premise in my code (at least, in a conciously way), I might get the wrong choice, and every comment about my solution will be appreciated.
+
+I ended up with three classes in my final solution:
+
++ HanoiTowers: responsible of managing the whole game, giving the API for moving disks from one rod (or *tower*) to another.
++ Tower: responsible for the stack-like behavior of the three towers used in the class described above.
++ HanoiSolver: responsible of solving the puzzle, interacting with the HanoiTowers game, choosing when to move from one tower to another.
+
+The class that I wanna talk about is *HanoiSolver*, since it's the one that hold the algorithm for this problem, but if you wanna see the whole solution it can be found [here](http://github.com/msanroman/hanoi_kata).
+
+###Implementing HanoiSolver
+
+Let's start describing what should do our solver with only one disk:
+
+{% highlight coffeescript %}
+describe 'with one disk', ->
+
+    it 'should solve it in a single step, moving from first to third', ->
+        solver = new HanoiSolver(new HanoiTowers(1))
+        solver.solve()
+        steps = solver.get_log()
+        steps.should.have.length 1
+        steps[0].should.equal 'From 1 to 3'
+{% endhighlight %}
+
+The simplest solution for this test is:
+
+{% highlight coffeescript %}
+class HanoiSolver
+    constructor: (game) ->
+        @solved = false
+        @steps = []
+
+    solve: ->
+        @steps.push "From 1 to 3"
+        @game.moveFrom(1).to(3)
+
+    get_log: ->
+        @steps
+{% endhighlight %}
+
+Ok, we are green. Let's go ahead and test what should do for two disks:
+
+{% highlight coffeescript %}
+    it 'for two disks should solve it in 3 steps', ->
+        solver = new HanoiSolver(new HanoiTowers(2))
+        solver.solve()
+        steps = solver.get_log()
+        steps.should.have.length 3
+        steps[0].should.equal 'From 1 to 2'
+        steps[1].should.equal 'From 1 to 3'
+        steps[2].should.equal 'From 2 to 3'
+{% endhighlight %}
+
+Now the first transformation we can use is the **unconditional -> if**, and split the execution path for 1 disk from the one for 2 disks:
+
+{% highlight coffeescript %}
+solve: ->
+    disks = @game.firstTower.size()
+    if disks == 1
+        @steps.push "From 1 to 3"
+        @game.moveFrom(1).to(3)
+    else
+        @steps.push "From 1 to 2"
+        @game.moveFrom(1).to(2)
+        @steps.push "From 1 to 3"
+        @game.moveFrom(1).to(3)
+        @steps.push "From 2 to 3"
+        @game.moveFrom(2).to(3)
+{% endhighlight %}
+
+And we can refactor it a little bit, adding some additional methods:
+
+{% highlight coffeescript %}
+solve: ->
+    disks = @game.firstTower.size()
+    if @only_one_movement_remaining disks
+        @log_movement 1, 3
+        @game.moveFrom(1).to(3)
+    else
+        @log_movement 1, 2
+        @game.moveFrom(1).to(2)
+        @log_movement 1, 3
+        @game.moveFrom(1).to(3)
+        @log_movement 2, 3
+        @game.moveFrom(2).to(3)
+
+log_movement: (source, destiny) ->
+    @steps.push "From #{source} to #{destiny}"
+
+only_one_movement_remaining: (disks) ->
+    disks == 1
+{% endhighlight %}
+
+The next thing we should test is 3 disks' behaviour:
+
+{% highlight coffeescript %}
+    it 'for three disks should solve it in 7 steps', ->
+        solver = new HanoiSolver(new HanoiTowers(3))
+        solver.solve()
+        steps = solver.get_log()
+        steps[0].should.equal 'From 1 to 3'
+        steps[1].should.equal 'From 1 to 2'
+        steps[2].should.equal 'From 3 to 2'
+        steps[3].should.equal 'From 1 to 3'
+        steps[4].should.equal 'From 2 to 1'
+        steps[5].should.equal 'From 2 to 3'
+        steps[6].should.equal 'From 1 to 3'
+        steps.should.have.length 7
+{% endhighlight %}
+
+Here we could split again the execution path, and add a **ton** of duplicated code (which only would serve us for the 3 disks' case). Instead of doing this, and remembering Uncle Bob's mantra: *As the tests get more specific, the code gets more generic.*, we should see for a way to generalize our existing code using one of the transformations indicated above, and I choose **statement -> recursion**, moving from my current statements inside the if seems the simplest move I can make to solve this test:
+
+{% highlight coffeescript %}
+
+solve: ->
+    disks = @game.firstTower.size()
+    @solve_recursively(disks, 1, 2, 3)
+
+solve_recursively: (disks, source, inter, destiny) ->
+    if @only_one_movement_remaining disks
+        @log_movement source, destiny
+        @game.moveFrom(source).to(destiny)
+    else
+        @solve_recursively(disks-1, source, destiny, inter)
+        @log_movement source, destiny
+        @game.moveFrom(source).to(destiny)
+        @solve_recursively(disks-1, inter, source, destiny)
+{% endhighlight %}
+
+After checking for 4 and 5 disks that it works as expected, the only thing that I do is remove some ugly duplication and try to get a better naming for each variable. Finally, my class looks like this:
+
+{% highlight coffeescript %}
+class HanoiSolver
+
+    TOWERS: {first: 1, second: 2, third: 3}
+
+    constructor: (game) ->
+        @game = game
+        @steps = []
+
+    solve: ->
+        disks = @game.firstTower.size()
+        @solve_recursively(disks, @TOWERS['first'], @TOWERS['second'], @TOWERS['third'])
+
+    solve_recursively: (remaining_disks, source, middle, destiny) ->
+        if @there_are_movements_remaining remaining_disks
+            @solve_recursively remaining_disks-1, source, destiny, middle
+            @moveDisk source, destiny
+            @solve_recursively remaining_disks-1, middle, source, destiny
+
+    moveDisk: (source, destiny) ->
+        @log_movement source, destiny
+        @game.moveFrom(source).to(destiny)
+
+    log_movement: (source, destiny) ->
+        @steps.push "From #{source} to #{destiny}"
+
+    get_log: ->
+        @steps
+
+    there_are_movements_remaining: (remaining_disks) ->
+        remaining_disks > 0
+{% endhighlight %}
+
+##Wrapping up
+
+Of course, the final algorithm isn't mine, but a recursive solution I learned a lot of time ago. Applying these premises has allowed me to TDD this logic much more easily than without them (in fact, as I told at the beggining of this post, I didn't know how to do it).
+
+Applying the correct tests and making the correct transformations to my code helped me to triangulate everything towards the resulting algorithm.
+
+As I told before, if you wanna check my complete solution it can be found [here](http://github.com/msanroman/hanoi_kata).
