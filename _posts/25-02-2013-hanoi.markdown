@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Applying the transformation priority premise to Hanoi Tower's kata"
+title: Applying the transformation priority premise to Hanoi Towers kata
 permalink: 'transformation-priority-premise-hanoi-kata'
 published: true
 ---

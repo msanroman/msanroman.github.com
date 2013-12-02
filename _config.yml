@@ -1,5 +1,4 @@
 markdown: rdiscount
 permalink: /:permalink
-auto: true
 pygments: true
 future: false

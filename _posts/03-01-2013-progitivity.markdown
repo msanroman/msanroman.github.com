@@ -142,6 +142,7 @@ exec('behat', $output, $returnCode);
 if ($returnCode != 0)
  echo implode(PHP_EOL, $output);
 die($returnCode);
+?>
 {% endhighlight %}
 
 ##Autocompleting
