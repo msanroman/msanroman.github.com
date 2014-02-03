@@ -22,10 +22,12 @@ site_url: 'http://www.msanroman.me'
         <link rel="icon" href="/favicon.ico" />
         <link rel="alternate" type="application/rss+xml" title="RSS Feed for msanroman.me" href="/rss.xml" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link href="../css/style.css" rel="stylesheet" media="screen and (min-width:1200px)">
+        <link href='http://fonts.googleapis.com/css?family=Enriqueta:400,700' rel='stylesheet' type='text/css'>
+        <link href="../css/new.css" rel="stylesheet">
+<!--         <link href="../css/style.css" rel="stylesheet" media="screen and (min-width:1200px)">
         <link href="../css/medium.css" rel="stylesheet" media="screen and (max-width:1199px)">
         <link href="../css/font-awesome.css" rel="stylesheet" media="screen">
-        <link href="../css/syntax.css" rel="stylesheet" media="screen">
+        <link href="../css/syntax.css" rel="stylesheet" media="screen"> -->
         <!--[if IE 7]>
             <link href="/css/font-awesome-ie7.css" rel="stylesheet" media="screen">
         <![endif]-->
@@ -46,32 +48,10 @@ site_url: 'http://www.msanroman.me'
         <script src="../js/modernizr-custom.js"></script>
     </head>
     <body>
-        <section class="sidebar">
-            <div class="avatar-container">
-                <a href="/">
-                    <img src="http://www.gravatar.com/avatar/b9658e531ce58a80bc981e5f375c7759.jpg" class="avatar" alt="Miguel San Rom&aacute;n">
-                </a>
-            </div>
-            <section class="name"><a href="/">Miguel San Rom&aacute;n</a></section>
-            <section class="meta">
-                <a title="Twitter" href="http://twitter.com/xtremevoodoo">
-                    <span class="icon-twitter twitter"></span>
-                </a>
-                <a title="GitHub" href="http://github.com/msanroman">
-                    <span class="icon-github github"></span>
-                </a>
-                <a title="YouTube" href="http://youtube.com/endymiion">
-                    <span class="icon-music music"></span>
-                </a>
-                <a title="Mail me!" href="mailto:mike@msanroman.me">
-                    <span class="icon-envelope mail"></span>
-                </a>
-                <a title="RSS" href="http://feeds.feedburner.com/msanroman">
-                    <span class="icon-rss mail"></span>
-                </a>
-            </section>
-            <nav>
-                <ul>
+        <nav>
+            <div class="container">
+                <a href="/" class="name"><b>Mike San Roman</b></a>
+                <ul class="menu">
                     <li>
                         <a href="/about">
                             &raquo; who am I?
@@ -83,8 +63,8 @@ site_url: 'http://www.msanroman.me'
                         </a>
                     </li>
                 </ul>
-            </nav>
-        </section>
+            </div>
+        </nav>
         {{ content }}
         <script type="text/javascript">
           var _gauges = _gauges || [];

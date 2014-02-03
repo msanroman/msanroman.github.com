@@ -1,0 +1,106 @@
+h1 {
+    color: #262626;
+    font-family: "Enriqueta", serif;
+    font-size: 44px;
+    line-height: 48px;
+    margin: 0 0 30px;
+}
+
+h2 {
+    color: #262626;
+    font-family: "Enriqueta", serif;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 42px;
+    margin: 0 0 24px;
+    padding: 12px 0 0;
+}
+
+h3 {
+    color: #c73036;
+    font-family: "Enriqueta", serif;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    margin: 0 0 24px;
+    padding: 12px 0 0;
+    text-transform: uppercase;
+}
+
+p {
+    color: #2f2f2f;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0 0 1.75em;
+}
+
+.post-info {
+    color: #aaaaaa;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1em;
+    padding: 1.5em 0;
+    margin: 0;
+}
+
+body {
+    font-family: Open Sans, sans-serif;
+}
+
+.post-info a {
+    color: #c73036;
+    font-family: "Enriqueta", serif;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav {
+    color: #262626;
+    text-transform: uppercase;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+nav a {
+    text-decoration: none;
+    transition: color 0.25s ease-in;
+    -webkit-transition: color 0.25s ease-in;
+}
+
+nav a:visited {
+    color: #262626;
+}
+
+nav a:hover {
+    color: #d35400;
+}
+
+.name {
+    font-size: 2em;
+}
+
+.menu {
+    font-size: 1.25em;
+    padding: 0;
+    margin: 0 0 0 15%;
+    display: inline;
+}
+
+.menu li {
+    list-style: none;
+    display: inline;
+    margin-left: 0.5em;
+}
+
+.menu a {
+    color: #262626;
+    font-weight: bold;
+}
+
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+}
