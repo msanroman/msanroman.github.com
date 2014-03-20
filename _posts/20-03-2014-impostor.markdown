@@ -1,0 +1,30 @@
+---
+layout: post
+title: '8 tips about overcoming the impostor syndrome I wish I had known'
+permalink: '8-tips-about-overcoming-the-impostor-syndrome-i-wish-i-had-known'
+published: true
+---
+>The **impostor syndrome**  is a psychological phenomenon in which people are unable to see their accomplishments, dismissing them as luck, timing, or as a result of deceiving others into thinking they are more intelligent and competent than they believe themselves to be.
+
+This is much more common that you'd think. It is known that lots of enterpreneurial and high-achieving women have it, but I've also found that it's pretty common in men, too.
+
+In fact, seems like people in the software or online industries present lots of cases of impostor syndrome. The speed at which technologies grow makes you learn new things in almost every project, and may make you feel like you are not performing as you should (or that you aren't in control of what you are supposed to be an expert).
+
+Problems start to arise and lots of times they are already solved by somebody else. In environments like that, it's easy to feel you aren't smart enough.
+
+I've felt like this sometimes. Receiving positive inputs about my performance or work, and not believing them just because what I did was easy, or I got lucky, or I just dissmissed those opinions, thinking that if a *real expert* came in and looked at what I had done, he would show everyone that I was a fraud.
+
+When that fear strikes, you start thinking that everyone is smarter than you, that there are lots of things that you don't know that all of them already know, and that they are expecting you to know them.
+
+## Overcoming it
+
+1. Recognize that it exists.
+2. When you receive some positive feedback, embrace it with objectivity and internalize it. By denying it, you are hurting that person's judgement.
+3. Don't attribute to luck your successes.
+4. Don't talk about your abilities or successes with words like "merely", "only", "simply", etc.
+5. Keep a journal. By writing your successes and failures down gives you a retrospective insight about them, and by re-reading it makes you remember equally both of them.
+6. Recognize that the *perfect* performer doesn't exist, and that problems will pop up eventually. Take them as little fires that make you move forward.
+7. Be *proud of being humble*.
+8. Remember that it's okay to seek help in others, and that even the best do it.
+
+**Extra tip by [Hackbright Academy's blog](http://blog.hackbrightacademy.com/2014/01/how-to-not-suffer-from-imposter-syndrome/)**: Accept the fact that there are thing that you do not know, there are thing that you will never know and there are things that you can decide to learn.
