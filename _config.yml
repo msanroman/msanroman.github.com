@@ -1,4 +1,4 @@
 markdown: rdiscount
-permalink: /:permalink
-pygments: true
+permalink: /:permalink 
+highlighter: pygments
 future: false

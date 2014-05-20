@@ -1,0 +1,43 @@
+---
+layout: post
+title: 'SSH productivity – aliases for your connections'
+permalink: 'ssh-productivity-aliases-for-your-connections'
+published: true
+---
+
+Are you still making an ssh connection like this?
+
+{% highlight bash %}
+in msanroman.github.com/ on master 
+λ ssh mike@my.awesome.server
+{% endhighlight %}
+
+That is so 90s! Aren't your fingers tired of *so much keystrokes*?
+
+Luckily for you, I've got a quick tip so your fingers doesn't fall apart. You can create a file named "config" under your .ssh directory, filling out something like this:
+
+{% highlight bash %}
+Host myalias
+  User mike
+  HostName my.awesome.server
+{% endhighlight %}
+
+And now you just type:
+
+{% highlight bash %}
+in msanroman.github.com/ on master 
+λ ssh myalias
+{% endhighlight %}
+
+**Voilà!**
+
+Oh, you need to connect to a server that needs a pem file for identification?
+
+{% highlight bash %}
+Host myalias
+  User mike
+  HostName my.awesome.server
+  IdentityFile ~/path/to/your/pem/file.pem
+{% endhighlight %}
+
+Enjoy! :)
