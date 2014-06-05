@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'How power napping might save you hours of work'
+title: 'How power napping will save you hours of work'
 permalink: 'power-napping-productivity'
 published: true
 ---
