@@ -50,7 +50,7 @@ function place_scrolly_header(){
             }
         }
     });
-    $("#scrolling-header").css({opacity:a}).html(d).css("left",h2s.first().position()["left"]-180 -35);
+    $("#scrolling-header").css({opacity:a}).html(d).css("left", 10);
 }
 $("body").append('<div id="scrolling-header"></div>');
 h2s=$(".content h2");
